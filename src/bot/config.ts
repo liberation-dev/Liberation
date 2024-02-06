@@ -4,6 +4,32 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
+import * as fs from "fs";
+import * as yaml from "js-yaml";
 interface Config {
-    
+    botToken: string;
+    botID: string;
+
+    colors: {
+        primary: string;
+        secondary: string;
+        success: string;
+        error: string;
+        invis: string;
+    };
+
+    sudoUsers: JSON;
 }
+
+function parseYamlConfig(filePath: string): Config {
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as Config;
+
+    // TODO: add error handling here
+
+    return data;
+}
+
+const config = parseYamlConfig("config.yaml");
+
+export default { config };
