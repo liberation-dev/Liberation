@@ -5,6 +5,7 @@
  */
 
 import * as fs from "fs";
+// @ts-ignore
 import * as yaml from "js-yaml";
 interface Config {
     botToken: string;
