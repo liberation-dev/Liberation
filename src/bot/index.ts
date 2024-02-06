@@ -11,7 +11,9 @@ const logger = require("../utils/logger");
 
 logger.info("Starting up");
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
+});
 
 // Load commands
 logger.info("Loading commands");
