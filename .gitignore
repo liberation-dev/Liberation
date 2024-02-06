@@ -176,6 +176,3 @@ dist
 
 # Liberation config
 config.yaml*
-config.yaml.dev
-config.yaml.main
-config.yaml.prod
