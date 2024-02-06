@@ -23,7 +23,7 @@ for (const folder of commandFolders) {
     const commandsPath = path.join(foldersPath, folder);
     const commandFiles = fs
         .readdirSync(commandsPath)
-        .filter((file: string) => file.endsWith(".js"));
+        .filter((file: string) => file.endsWith(".ts"));
     for (const file of commandFiles) {
         const filePath = path.join(commandsPath, file);
         const command = require(filePath);
@@ -43,7 +43,7 @@ client.buttons = new Map();
 const buttonsPath = path.join(__dirname, "./components/buttons");
 const buttonFiles = fs
     .readdirSync(buttonsPath)
-    .filter((file: string) => file.endsWith(".js"));
+    .filter((file: string) => file.endsWith(".ts"));
 
 for (const file of buttonFiles) {
     const button = require(`${buttonsPath}/${file}`);
@@ -56,7 +56,7 @@ client.modals = new Map();
 const modalsPath = path.join(__dirname, "./components/modals");
 const modalFiles = fs
     .readdirSync(modalsPath)
-    .filter((file: string) => file.endsWith(".js"));
+    .filter((file: string) => file.endsWith(".ts"));
 
 for (const file of modalFiles) {
     const model = require(`${modalsPath}/${file}`);
@@ -68,7 +68,7 @@ logger.info("Loading events");
 const eventsPath = path.join(__dirname, "events");
 const eventFiles = fs
     .readdirSync(eventsPath)
-    .filter((file: string) => file.endsWith(".js"));
+    .filter((file: string) => file.endsWith(".ts"));
 
 for (const file of eventFiles) {
     const filePath = path.join(eventsPath, file);
