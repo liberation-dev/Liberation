@@ -17,7 +17,8 @@ module.exports = {
         await interaction.deferReply();
 
         // System information
-        const osInfo = os.type();
+        const osType = os.type();
+        const osRelease = os.release();
         const cpuInfo = os.cpus()[0].model;
         const totalMemory = Math.round(os.totalmem() / (1024 * 1024));
 
@@ -27,7 +28,12 @@ module.exports = {
         const guilds = interaction.client.guilds.cache.size;
         const users = interaction.client.users.cache.size;
         const discordjsVersion = require("discord.js").version;
+        const bunVersion = Bun.version;
         const botVersion = "1.0.0";
+
+        // Guild information
+        const guildId = interaction.guildId ?? "Not a guild";
+        const shardId = interaction.guild.shardId ?? "Not a guild";
 
         // Embed
         const statsEmbed = new EmbedBuilder()
@@ -40,15 +46,24 @@ module.exports = {
 - Servers: \`${guilds}\`
 - Users (cached): \`${users}\`
 - Library: \`Discord.js v${discordjsVersion}\`
+- Runtime: \`Bun v${bunVersion}\`
 - Bot Version: \`${botVersion}\``,
                     inline: true,
                 },
                 {
                     name: "System",
                     value: `\
-- OS: \`${osInfo}\`
+- OS: \`${osType} ${osRelease}\`
 - CPU: \`${cpuInfo}\`
 - Memory: \`${totalMemory} MB\`
+`,
+                    inline: true,
+                },
+                {
+                    name: "Guild",
+                    value: `\
+- Shard ID: \`${shardId}\`
+- Guild ID: \`${guildId}\`
 `,
                     inline: true,
                 },

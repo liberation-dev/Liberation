@@ -16,7 +16,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // Load commands
 logger.info("Loading commands");
 client.commands = new Collection();
-const foldersPath = path.join(__dirname, "commands");
+const foldersPath = path.join(import.meta.dir, "commands");
 const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
@@ -28,6 +28,7 @@ for (const folder of commandFolders) {
         const filePath = path.join(commandsPath, file);
         const command = require(filePath);
         if ("data" in command && "execute" in command) {
+            logger.info(`Found command ${command.data.name}`);
             client.commands.set(command.data.name, command);
         } else {
             logger.warn(
