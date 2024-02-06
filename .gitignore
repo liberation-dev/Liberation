@@ -173,4 +173,9 @@ dist
 
 # Finder (MacOS) folder config
 .DS_Store
+
+# Liberation config
 config.yaml*
+config.yaml.dev
+config.yaml.main
+config.yaml.prod
