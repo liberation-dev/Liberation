@@ -4,14 +4,14 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-const { Events, EmbedBuilder } = require("discord.js");
+const { Events, Interaction } = require("discord.js");
 const config = require("../config");
 const logger = require("../../utils/logger");
 
 module.exports = {
     name: Events.InteractionCreate,
     // once: true,
-    async execute(interaction) {
+    async execute(interaction: typeof Interaction) {
         const interactionName =
             (await interaction.commandName) ?? interaction.customId;
         const interactionSource = interaction.guild
@@ -38,7 +38,7 @@ module.exports = {
 
                 try {
                     await command.execute(interaction);
-                } catch (error) {
+                } catch (error: any) {
                     console.error(
                         `Error executing ${interaction.commandName} - ${error}`,
                         {
@@ -82,7 +82,7 @@ module.exports = {
                     }
                 }
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error(`Error executing ${interactionName} - ${error}`, {
                 interaction: interactionName,
             });
