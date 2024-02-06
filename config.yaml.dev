@@ -1,0 +1,35 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+#         _____ ______  _______  ______ _______ _______ _____  _____  __   _
+#  |        |   |_____] |______ |_____/ |_____|    |      |   |     | | \  |
+#  |_____ __|__ |_____] |______ |    \_ |     |    |    __|__ |_____| |  \_|
+#
+
+# ━ Bot Values ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+botToken: token
+botID: ""
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━ Stylization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+colors:
+    primary: "#F2FFFE"
+    secondary: "#101111"
+    success: null
+    error: null
+    invis: "#2B2D31"
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━ IDs ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+sudoUsers:
+    - "908002848967626842" # JB
+    - "1027380375028244551" # Roc
+    - "385176144590143489" # Gowthr
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ━ Presence ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+presence:
+    name: "Hello, world!"
+    status: "online"
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
