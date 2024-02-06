@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-const config = require("./config");
+const { config } = require("./config");
 const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
@@ -81,4 +81,4 @@ for (const file of eventFiles) {
 }
 
 logger.info("Logging into Discord");
-client.login(config.keys.botKey);
+client.login(config.botToken);

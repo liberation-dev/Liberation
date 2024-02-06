@@ -5,7 +5,7 @@
  */
 
 const { Events, Interaction } = require("discord.js");
-const config = require("../config");
+const { config } = require("../config");
 const logger = require("../../utils/logger");
 
 module.exports = {

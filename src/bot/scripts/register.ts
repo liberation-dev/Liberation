@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-const config = require("../config");
+const { config } = require("../config");
 const { REST, Routes } = require("discord.js");
 const fs = require("node:fs");
 const path = require("node:path");

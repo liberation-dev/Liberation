@@ -31,6 +31,6 @@ function parseYamlConfig(filePath: string): Config {
     return data;
 }
 
-const config = parseYamlConfig("config.yaml");
+let config = parseYamlConfig("config.yaml");
 
-export default { config };
+export { config };
