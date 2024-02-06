@@ -37,6 +37,7 @@ for (const folder of commandFolders) {
     }
 }
 
+/*
 // Load buttons
 logger.info("Loading buttons");
 client.buttons = new Map();
@@ -49,7 +50,9 @@ for (const file of buttonFiles) {
     const button = require(`${buttonsPath}/${file}`);
     client.buttons.set(button.data.customId, button);
 }
+*/
 
+/*
 // Load modals
 logger.info("Loading modals");
 client.modals = new Map();
@@ -62,6 +65,7 @@ for (const file of modalFiles) {
     const model = require(`${modalsPath}/${file}`);
     client.modals.set(model.data.customId, model);
 }
+*/
 
 // Handle events
 logger.info("Loading events");
