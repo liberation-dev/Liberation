@@ -3,7 +3,8 @@
   "module": "src/bot/index.ts",
   "type": "module",
   "scripts": {
-    "start": "bun run ./src/bot/index.ts"
+    "start": "bun run ./src/bot/index.ts",
+    "register": "bun run ./src/bot/scripts/register.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"

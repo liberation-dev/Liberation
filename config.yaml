@@ -9,13 +9,13 @@
 
 # ━ Bot Values ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 botToken:
-botID: "1189193161222926426"
+botID: ""
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 # ━ Stylization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 colors:
-    primary: null
-    secondary: null
+    primary: "#F2FFFE"
+    secondary: "#101111"
     success: null
     error: null
     invis: "#2B2D31"

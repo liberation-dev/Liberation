@@ -17,7 +17,7 @@ for (const folder of commandFolders) {
     const commandsPath = path.join(foldersPath, folder);
     const commandFiles = fs
         .readdirSync(commandsPath)
-        .filter((file: string) => file.endsWith(".js"));
+        .filter((file: string) => file.endsWith(".ts"));
     for (const file of commandFiles) {
         const filePath = path.join(commandsPath, file);
         const command = require(filePath);
@@ -31,7 +31,7 @@ for (const folder of commandFolders) {
     }
 }
 
-const rest = new REST().setToken(config.keys.botKey);
+const rest = new REST().setToken(config.botToken);
 
 (async () => {
     try {
