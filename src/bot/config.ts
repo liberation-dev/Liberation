@@ -20,6 +20,11 @@ interface Config {
     };
 
     sudoUsers: JSON;
+
+    presence: {
+        name: string;
+        status: string;
+    };
 }
 
 function parseYamlConfig(filePath: string): Config {

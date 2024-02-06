@@ -17,11 +17,11 @@ module.exports = {
         client.user.setPresence({
             activities: [
                 {
-                    name: "Lorem Ipsum",
+                    name: config.presence.name,
                     type: ActivityType.Custom,
                 },
             ],
-            status: "online",
+            status: config.presence.status,
         });
     },
 };
