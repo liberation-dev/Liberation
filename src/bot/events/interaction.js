@@ -1,7 +1,6 @@
 const { Events, EmbedBuilder } = require("discord.js");
 const config = require("../config");
 const logger = require("../../utils/logger");
-const Stat = require("../../database/models/stats");
 
 module.exports = {
     name: Events.InteractionCreate,
@@ -43,18 +42,6 @@ module.exports = {
                     console.log(error.message);
                     console.log(error.stack);
                 }
-
-                // Update commands ran value
-                const [commandsRan, isNewStat] = await Stat.findOrCreate({
-                    where: { name: "commandsRan" },
-                });
-                const newCommandsRan = commandsRan.value + 1;
-                await commandsRan.update({ value: newCommandsRan });
-
-                // Log
-                logger.info(
-                    `Cmd ${interactionName} -> Commands ran value set to ${newCommandsRan}`
-                );
             } else if (interaction.isButton()) {
                 const button = interaction.client.buttons.get(
                     interaction.customId
