@@ -25,6 +25,10 @@ interface Config {
         name: string;
         status: string;
     };
+
+    database: {
+        url: string;
+    };
 }
 
 function parseYamlConfig(filePath: string): Config {

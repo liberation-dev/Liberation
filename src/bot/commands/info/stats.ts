@@ -25,13 +25,13 @@ module.exports = {
         // Bot information
         const uptime = process.uptime();
         const formattedUptime = time(new Date(Date.now() - uptime * 1000), "R");
-        const guilds = interaction.client.guilds.cache.size;
         const users = interaction.client.users.cache.size;
         const discordjsVersion = require("discord.js").version;
         const bunVersion = Bun.version;
         const botVersion = "1.0.0";
 
         // Guild information
+        const guilds = interaction.client.guilds.cache.size;
         const guildId = interaction.guildId ?? "Not a guild";
         const shardId = interaction.guild.shardId ?? "Not a guild";
 
@@ -43,7 +43,6 @@ module.exports = {
                 {
                     name: "Bot",
                     value: `- Started: ${formattedUptime}
-- Servers: \`${guilds}\`
 - Users (cached): \`${users}\`
 - Library: \`Discord.js v${discordjsVersion}\`
 - Runtime: \`Bun v${bunVersion}\`
@@ -61,7 +60,7 @@ module.exports = {
                 },
                 {
                     name: "Guild",
-                    value: `\
+                    value: `- Servers: \`${guilds}\`
 - Shard ID: \`${shardId}\`
 - Guild ID: \`${guildId}\`
 `,

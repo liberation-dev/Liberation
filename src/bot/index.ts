@@ -8,12 +8,16 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const logger = require("../utils/logger");
+import * as mongoose from 'mongoose';
 
 logger.info("Starting up");
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
 });
+
+// Connect to DB
+await mongoose.connect(config.database.url);
 
 // Load commands
 logger.info("Loading commands");
