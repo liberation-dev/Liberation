@@ -28,6 +28,7 @@ interface Config {
 
     database: {
         url: string;
+        key: string;
     };
 }
 
