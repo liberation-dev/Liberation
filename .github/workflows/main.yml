@@ -1,0 +1,21 @@
+name: Update Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_server:
+    runs-on: sh-jb-1
+
+    steps:
+    - name: Stop App
+      run: |
+        docker stop liberation
+
+    - name: Fetch Updates and Restart App
+      run: |
+        cd ~/Liberation
+        git pull
+        docker-compose up -d --build
