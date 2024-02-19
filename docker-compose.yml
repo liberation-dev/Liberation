@@ -1,0 +1,44 @@
+version: "3.3"
+
+services:
+    mongo:
+        image: mongo
+        restart: always
+        container_name: mongo
+        logging:
+            driver: "json-file"
+            options:
+                max-size: 1g
+        volumes:
+            - mongo_data:/data/db
+        ports:
+            - "27017:27017"
+
+    # ! UNSTABLE - use at your own risk
+    # mongo-express:
+    #     image: mongo-express
+    #     restart: always
+    #     container_name: mongo-express
+    #     environment:
+    #         - ME_CONFIG_MONGODB_SERVER=mongo
+    #         - ME_CONFIG_BASICAUTH_USERNAME=admin
+    #         - ME_CONFIG_BASICAUTH_PASSWORD=secret
+    #     ports:
+    #         - "8081:8081"
+    #     depends_on:
+    #         - mongo
+
+    bot:
+        build: .
+        restart: on-failure:1
+        container_name: liberation
+        depends_on:
+            - mongo
+        volumes:
+            - bot_logs:/app/src/logs
+
+volumes:
+    mongo_data:
+        driver: local
+    bot_logs:
+        driver: local

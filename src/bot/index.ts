@@ -8,16 +8,13 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const logger = require("../utils/logger");
-import * as mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 logger.info("Starting up");
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
 });
-
-// Connect to DB
-await mongoose.connect(config.database.url);
 
 // Load commands
 logger.info("Loading commands");
@@ -89,6 +86,15 @@ for (const file of eventFiles) {
     } else {
         client.on(event.name, (...args: any) => event.execute(...args));
     }
+}
+
+// Connect to DB
+logger.info("Connecting to database");
+try {
+    await mongoose.connect(config.database.url);
+} catch (err) {
+    logger.error(err);
+    throw err;
 }
 
 logger.info("Logging into Discord");

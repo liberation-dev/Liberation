@@ -5,7 +5,11 @@
 </p>
 
 # Features
+
 WIP
 
 # Running
-WIP
+
+Running with docker (work in progress):
+Setup: `docker-compose up`
+Setup (with changes): `docker-compose up --force-recreate`

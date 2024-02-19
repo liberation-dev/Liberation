@@ -36,8 +36,6 @@ function parseYamlConfig(filePath: string): Config {
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as Config;
 
-    // TODO: add error handling here
-
     return data;
 }
 
