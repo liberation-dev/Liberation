@@ -10,6 +10,8 @@ jobs:
     runs-on: sh-jb-1
 
     steps:
+    - uses: actions/checkout@v2
+    
     - name: Stop App
       run: |
         docker stop liberation
@@ -19,3 +21,14 @@ jobs:
         cd ~/Liberation
         git pull
         docker compose up -d --build
+
+    - name: Send Commit done Message
+      uses: tsickert/discord-webhook@v5.4.0
+      with:
+        webhook-url: ${{ secrets.WEBHOOK_URL }}
+        embed-title: Liberation Staging is now on commit `${{ github.sha }}`!
+        embed-description: |
+          Commit Message: ${{ github.event.head_commit.message }}
+          Author: ${{ github.triggering_actor }}
+      
+  
