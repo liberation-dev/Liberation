@@ -45,6 +45,7 @@ for (const folder of commandFolders) {
 logger.info("Loading buttons");
 client.buttons = new Map();
 const buttonsPath = path.join(import.meta.dir, "./components/buttons");
+const buttonsPath = path.join(import.meta.dir, "./components/buttons");
 const buttonFiles = fs
     .readdirSync(buttonsPath)
     .filter((file: string) => file.endsWith(".ts"));
@@ -63,6 +64,20 @@ const selectMenuFiles = fs
     .filter((file: string) => file.endsWith(".ts"));
 
 for (const file of selectMenuFiles) {
+    const selectMenu = require(`${selectMenusPath}/${file}`);
+    client.selectMenus.set(selectMenu.data.customId, selectMenu);
+}
+
+
+// Load select menus
+logger.info("Loading select menus");
+client.buttons = new Map();
+const selectMenusPath = path.join(import.meta.dir, "./components/selectmenus");
+const selectMenuFiles = fs
+    .readdirSync(buttonsPath)
+    .filter((file: string) => file.endsWith(".ts"));
+
+for (const file of buttonFiles) {
     const selectMenu = require(`${selectMenusPath}/${file}`);
     client.selectMenus.set(selectMenu.data.customId, selectMenu);
 }
