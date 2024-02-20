@@ -41,11 +41,10 @@ for (const folder of commandFolders) {
     }
 }
 
-/*
 // Load buttons
 logger.info("Loading buttons");
 client.buttons = new Map();
-const buttonsPath = path.join(__dirname, "./components/buttons");
+const buttonsPath = path.join(import.meta.dir, "./components/buttons");
 const buttonFiles = fs
     .readdirSync(buttonsPath)
     .filter((file: string) => file.endsWith(".ts"));
@@ -54,13 +53,24 @@ for (const file of buttonFiles) {
     const button = require(`${buttonsPath}/${file}`);
     client.buttons.set(button.data.customId, button);
 }
-*/
 
-/*
+// Load select menus
+logger.info("Loading select menus");
+client.buttons = new Map();
+const selectMenusPath = path.join(import.meta.dir, "./components/selectmenus");
+const selectMenuFiles = fs
+    .readdirSync(buttonsPath)
+    .filter((file: string) => file.endsWith(".ts"));
+
+for (const file of buttonFiles) {
+    const selectMenu = require(`${selectMenusPath}/${file}`);
+    client.selectMenus.set(selectMenu.data.customId, selectMenu);
+}
+
 // Load modals
 logger.info("Loading modals");
 client.modals = new Map();
-const modalsPath = path.join(__dirname, "./components/modals");
+const modalsPath = path.join(import.meta.dir, "./components/modals");
 const modalFiles = fs
     .readdirSync(modalsPath)
     .filter((file: string) => file.endsWith(".ts"));
@@ -69,11 +79,10 @@ for (const file of modalFiles) {
     const model = require(`${modalsPath}/${file}`);
     client.modals.set(model.data.customId, model);
 }
-*/
 
 // Handle events
 logger.info("Loading events");
-const eventsPath = path.join(__dirname, "events");
+const eventsPath = path.join(import.meta.dir, "events");
 const eventFiles = fs
     .readdirSync(eventsPath)
     .filter((file: string) => file.endsWith(".ts"));
