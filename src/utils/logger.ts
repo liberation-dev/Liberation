@@ -16,7 +16,7 @@ const transport = pino.transport({
         },
         {
             target: "pino/file",
-            options: { destination: path.join(__dirname, "../logs/log.log") },
+            options: { destination: path.join(import.meta.dir, "../logs/log.log") },
         },
     ],
 });
