@@ -3,13 +3,13 @@ import * as mongoose from "mongoose";
 const guildConfigSchema = new mongoose.Schema(
     {
         guildId: {type: String, required: true},
-        tempVoiceEnabled: {type: Boolean, required: true},
+    //    tempVoiceEnabled: {type: Boolean, required: true},
         tempVoiceChannelId: {type: String},
         tempVoiceCategoryId: {type: String},
-        tempTextEnabled: {type: Boolean, required: true},
+    //    tempTextEnabled: {type: Boolean, required: true},
         tempTextChannelId: {type: String},
         tempTextCategoryId: {type: String},
-        ticketsEnabled: {type: Boolean, required: true},
+    //    ticketsEnabled: {type: Boolean, required: true},
         ticketsMessageId: {type: String},
         ticketsCategoryId: {type: String},
     }
@@ -36,6 +36,7 @@ const tempTextSchema = new mongoose.Schema(
 const ticketSchema = new mongoose.Schema(
     {
         ticketId: {type: String},
+        isClosed: {type: Boolean, required: true},
         guildId: {type: String, required: true},
         ticketChannelId: {type: String, required: true},
         ownerId: {type: String, required: true}

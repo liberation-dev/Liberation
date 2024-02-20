@@ -56,13 +56,13 @@ for (const file of buttonFiles) {
 
 // Load select menus
 logger.info("Loading select menus");
-client.buttons = new Map();
+client.selectMenus = new Map();
 const selectMenusPath = path.join(import.meta.dir, "./components/selectmenus");
 const selectMenuFiles = fs
-    .readdirSync(buttonsPath)
+    .readdirSync(selectMenusPath)
     .filter((file: string) => file.endsWith(".ts"));
 
-for (const file of buttonFiles) {
+for (const file of selectMenuFiles) {
     const selectMenu = require(`${selectMenusPath}/${file}`);
     client.selectMenus.set(selectMenu.data.customId, selectMenu);
 }

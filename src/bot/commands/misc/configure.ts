@@ -18,7 +18,7 @@ const { GuildConfig } = require('../../database/schema');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("configure")
-        .setDescription(`Database test`)
+        .setDescription("Configure Liberation")
         .addChannelOption(option =>
             option.setName('channel')
                 .setDescription('The channel for the temp vc thing')
@@ -27,9 +27,10 @@ module.exports = {
         .addChannelOption(option =>
             option.setName('category')
                 .setDescription('The category for the temp vc thing')
-                .setRequired(true)
-                .addChannelTypes(ChannelType.GuildCategory))
-        .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
+                .addChannelTypes(ChannelType.GuildCategory)
+                .setRequired(true))
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
+        .setDMPermission(false),
     async execute(interaction: typeof Interaction) {
         const channel = interaction.options.getChannel('channel')
         const category = interaction.options.getChannel('category')
@@ -42,6 +43,23 @@ module.exports = {
 
         guildConfig.save();
 
-        await interaction.reply('done');
+        const configureReply = new EmbedBuilder()
+            .setColor(config.colors.primary)
+            .setTitle("Liberation configured!")
+            .addFields([
+                {
+                    name: "Create a Temp VC channel",
+                    value: `${channel}`,
+                    inline: true
+                },
+                {
+                    name: "Temp VC category",
+                    value: `${category}`,
+                    inline: true
+                }
+            ]);
+
+
+        await interaction.reply({ embeds: [ configureReply ], ephemeral: true });
     },
 };

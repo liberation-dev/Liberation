@@ -2,11 +2,11 @@ const { ButtonBuilder, ButtonStyle, Interaction } = require("discord.js");
 const config = require("../../config.ts");
 
 module.exports = {
-    button: new ButtonBuilder()
+    data: new ButtonBuilder()
         .setLabel("Poke")
         .setCustomId("test-button")
-        .setStyle(ButtonStyle),
+        .setStyle(ButtonStyle.Primary),
     async execute(interaction: typeof Interaction) {
-        await interaction.reply("hello");
+        await interaction.update("hello");
     },
 };
