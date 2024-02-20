@@ -62,7 +62,7 @@ const selectMenuFiles = fs
     .readdirSync(selectMenusPath)
     .filter((file: string) => file.endsWith(".ts"));
 
-for (const file of selectMenusFiles) {
+for (const file of selectMenuFiles) {
     const selectMenu = require(`${selectMenusPath}/${file}`);
     client.selectMenus.set(selectMenu.data.customId, selectMenu);
 }
