@@ -6,7 +6,7 @@
 
 # Features
 
-WIP
+Work in Progress
 
 # Running
 
