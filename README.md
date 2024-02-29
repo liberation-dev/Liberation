@@ -10,7 +10,7 @@ Work in Progress
 
 # Running
 
-Running with docker (work in progress):
+Running with docker (still WIP):
 
 Setup: `docker-compose up`
 
