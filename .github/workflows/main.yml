@@ -30,5 +30,14 @@ jobs:
         embed-description: |
           Commit Message: ${{ github.event.head_commit.message }}
           Author: ${{ github.triggering_actor }}
+
+    - name: Send Commit done Message on Roc testing server
+      uses: tsickert/discord-webhook@v5.4.0
+      with:
+        webhook-url: ${{ secrets.WEBHOOK_URL_ROC }}
+        embed-title: Liberation Staging is now on commit `${{ github.sha }}`!
+        embed-description: |
+          Commit Message: ${{ github.event.head_commit.message }}
+          Author: ${{ github.triggering_actor }}
       
   
