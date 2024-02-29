@@ -34,7 +34,7 @@ services:
 
     bot:
         build: .
-        restart: on-failure:1
+        restart: unless-stopped
         container_name: liberation
         depends_on:
             - mongo
