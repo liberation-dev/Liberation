@@ -3,7 +3,7 @@
   <br/>A bot that provides temporary voice channels,
   <br/>temporary text channels, and tickets on a single package.
 </p>
-https://github.com/liberation-dev/Liberation/actions/workflows/deploy.yml/badge.svg
+<img src="https://github.com/liberation-dev/Liberation/actions/workflows/deploy.yml/badge.svg"/ >
 
 # Features
 
