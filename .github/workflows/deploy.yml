@@ -1,4 +1,4 @@
-name: Update Server
+name: Deploy to Liberation Staging
 
 on:
   push:
