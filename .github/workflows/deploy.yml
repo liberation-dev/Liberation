@@ -10,20 +10,17 @@ on:
 jobs:
   deploy_to_server:
     runs-on: sh-jb-1
-
+    environment: staging
     steps:
     - uses: actions/checkout@v2
-    
     - name: Stop App
       run: |
         docker stop liberation
-
     - name: Fetch Updates and Restart App
       run: |
         cd ~/Liberation
         git pull
         docker compose up -d --build
-
     - name: Send Commit done Message
       uses: tsickert/discord-webhook@v5.4.0
       with:
@@ -32,7 +29,6 @@ jobs:
         embed-description: |
           Commit Message: ${{ github.event.head_commit.message }}
           Author: ${{ github.triggering_actor }}
-
     - name: Send Commit done Message on Roc testing server
       uses: tsickert/discord-webhook@v5.4.0
       with:
