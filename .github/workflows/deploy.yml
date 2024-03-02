@@ -1,6 +1,8 @@
 name: Deploy to Liberation Staging
 
 on:
+  workflow_call:
+  workflow_dispatch:
   push:
     branches:
       - main
